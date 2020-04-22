@@ -14,5 +14,5 @@ function showSalary(data, age) {
     return matchingUser.name + ", " + matchingUser.balance;
   });
   
-  return namesBalances.join("/n");
+  return namesBalances.join("\n");
 }
