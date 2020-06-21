@@ -6,4 +6,4 @@ function hideSelf() {
   });
 }
 
-hideSelf();
+//hideSelf();
