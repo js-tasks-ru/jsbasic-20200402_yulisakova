@@ -62,7 +62,6 @@ export default class Carousel {
   addProduct(event) {
     if (event.target.closest(".carousel__button")) {
       let slide = event.target.closest(".carousel__slide").dataset;
-      console.log(slide); // вроде да..
 
       let myEvent = new CustomEvent("product-add", {
         detail: slide.id,
@@ -73,7 +72,7 @@ export default class Carousel {
   }
 
   changeSlide(event) {
-    
+
     let slidesAmount = document.querySelectorAll(".carousel__slide").length;
     let slideLine = document.querySelector(".carousel__inner");
     let slideWidth = document.querySelector(".carousel__slide").offsetWidth;

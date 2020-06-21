@@ -7,7 +7,7 @@ export default [
   },
   {
     name: 'Chicken cashew',
-    price: 14.66,
+    price: 14,
     image: 'chicken_cashew.png',
     id: 'chicken-cashew'
   },
