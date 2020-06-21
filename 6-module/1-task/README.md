@@ -41,11 +41,11 @@ document.body.appendChild(table.elem);
 <table>
     <thead>
         <tr>
-            <th>Имя</td>
-            <th>Возраст</td>
-            <th>Зарплата</td>
-            <th>Город</td>
-            <th></td>
+            <th>Имя</th>
+            <th>Возраст</th>
+            <th>Зарплата</th>
+            <th>Город</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
