@@ -12,7 +12,7 @@ export default class Modal {
     this.modalInner.classList.add("modal__inner");
     this.modalInner.innerHTML = `
       <div class="modal__header">
-        <!--Кнопка закрытия модального окна-->
+
         <button type="button" class="modal__close">
           <img src="/assets/images/icons/cross-icon.svg" alt="close-icon" />
         </button>
@@ -30,16 +30,9 @@ export default class Modal {
     this.elem.append(this.overlay);
     this.elem.append(this.modalInner);
 
-    this.title = title;
-    this.html = html;
-
-    this.open();
-    this.setTitle(string);
-    this.setBody(html);
-    this.close();
-
-    this.elem.addEventListener("click", (event) => this.closeByX(event));
-
+    document.body.addEventListener("click", (event) => this.open(event));
+    
+    document.body.addEventListener("click", (event) => this.closeByX(event));
     document.body.addEventListener("keydown", (event) => this.closeByESC(event));
   }
 
@@ -48,15 +41,21 @@ export default class Modal {
     document.body.classList.add("is-modal-open");
   } 
 
-  setTitle(this.title) {
-    let newTitle = document.body.querySelector(".modal__title");
-    newTitle.innerHTML = `${this.title}`;
+  setTitle(title) {
+    let newTitle = this.elem.querySelector(".modal__title");
+    newTitle.innerHTML = title;
   }
 
-  setBody(this.html) {
-    let modalBody = document.body.querySelector(".modal__body");
-    modalBody.innerHTML = "";
-    modalBody.innerHTML = `${this.html}`;
+  setBody(modalBody) {
+    let myBody = this.elem.querySelector(".modal__body");
+    myBody.innerHTML = "";
+    myBody.append(modalBody);
+  }
+  
+  closeByX(event) {
+    if (event.target.closest(".modal__close")) {
+      this.close();
+    }
   }
 
   close() {
@@ -64,16 +63,10 @@ export default class Modal {
     document.body.classList.remove("is-modal-open");
   }
 
-  closeByX(event) {
-    if (event.target.classList.contains("modal__close")) {
-      this.close();
-    }
-  }
-
   closeByESC(event) {
     if (event.code === "Escape") {
       this.close();
     }
-
   }
+
 }
